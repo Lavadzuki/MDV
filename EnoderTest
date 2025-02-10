@@ -1,0 +1,24 @@
+# Test vector for Priority Encoder
+# Inputs: In1-In9
+# Output: PriOut (4-bit binary)
+In1 In2 In3 In4 In5 In6 In7 In8 In9 PriOut
+0   0   0   0   0   0   0   0   0    0000  # No input active
+1   0   0   0   0   0   0   0   0    0001  # In1 active
+0   1   0   0   0   0   0   0   0    0010  # In2 active
+0   0   1   0   0   0   0   0   0    0011  # In3 active
+0   0   0   1   0   0   0   0   0    0100  # In4 active
+0   0   0   0   1   0   0   0   0    0101  # In5 active
+0   0   0   0   0   1   0   0   0    0110  # In6 active
+0   0   0   0   0   0   1   0   0    0111  # In7 active
+0   0   0   0   0   0   0   1   0    1000  # In8 active
+0   0   0   0   0   0   0   0   1    1001  # In9 active
+
+# Multiple active inputs, highest priority selected
+1   1   0   0   0   0   0   0   0    0010  # In2 is highest priority
+1   1   1   0   0   0   0   0   0    0011  # In3 is highest priority
+1   0   1   1   0   0   0   0   0    0100  # In4 is highest priority
+0   0   1   1   1   0   0   0   0    0101  # In5 is highest priority
+1   1   1   1   1   1   0   0   0    0110  # In6 is highest priority
+1   1   1   1   1   1   1   0   0    0111  # In7 is highest priority
+1   1   1   1   1   1   1   1   0    1000  # In8 is highest priority
+1   1   1   1   1   1   1   1   1    1001  # In9 is highest priority
