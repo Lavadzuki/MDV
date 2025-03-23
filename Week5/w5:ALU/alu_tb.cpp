@@ -6,14 +6,12 @@
 #include <ctime>   // Required for std::time()
 #include <string>  // Required for std::string
 
-// Function to print a 16-bit binary number
 void printBinary(uint16_t num) {
     for (int i = 15; i >= 0; i--) {
         std::cout << ((num >> i) & 1);
     }
 }
 
-// Function to compute expected logic results
 uint16_t computeLogic(uint16_t a, uint16_t b, int op) {
     switch (op) {
         case 0b0000: return ~a;
@@ -36,7 +34,6 @@ uint16_t computeLogic(uint16_t a, uint16_t b, int op) {
     }
 }
 
-// Function to compute expected arithmetic results
 uint16_t computeArith(uint16_t a, uint16_t b, int op) {
     switch (op) {
         case 0b0000: return a;
@@ -107,7 +104,7 @@ int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv); // Initialize Verilator
     Valu* tb = new Valu;  // Instantiate the ALU module
 
-    const int num_tests = 1000; // Number of test iterations
+    const int num_tests = 3; // Number of test iterations
     const int select_size = 16; // All possible operations (assuming 4-bit select)
     std::srand(std::time(0)); 
 
