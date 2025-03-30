@@ -31,9 +31,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vcontrol_unit VL_NOT_FINAL : public Verilated
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
     VL_IN8(&run,0,0);
-    VL_OUT8(&sel,3,0);
+    VL_OUT8(&sel,2,0);
     VL_OUT8(&mux_sel,2,0);
-    VL_OUT8(&mode,0,0);
     VL_OUT8(&done,0,0);
     VL_OUT8(&enableOutput,7,0);
     VL_OUT8(&en_s,0,0);

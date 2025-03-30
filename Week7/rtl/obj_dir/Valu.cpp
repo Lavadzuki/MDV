@@ -11,7 +11,6 @@ Valu::Valu(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new Valu__Syms(contextp(), _vcname__, this)}
     , carry_in{vlSymsp->TOP.carry_in}
     , select{vlSymsp->TOP.select}
-    , mode{vlSymsp->TOP.mode}
     , carry_out{vlSymsp->TOP.carry_out}
     , compare{vlSymsp->TOP.compare}
     , in_a{vlSymsp->TOP.in_a}

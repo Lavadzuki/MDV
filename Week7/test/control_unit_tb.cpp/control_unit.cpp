@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     // Deassert reset and give valid instruction
     control->rst = 0;
     control->run = 1;
-    control->instruction = 0b1011110000000100; // Example instruction
+    control->instruction = 0b1011110000010100; // Example instruction
 
     std::cout << "Running FSM..." << std::endl;
 
@@ -35,7 +35,6 @@ int main(int argc, char **argv)
         std::bitset<8> enables(control->enableOutput);
         std::cout << "Cycle " << i << ": "
                   << "sel=" << std::hex << (int)control->sel
-                  << " mode=" << (int)control->mode
                   << " done=" << (int)control->done
                   << " enables=[ ";
         

@@ -14,7 +14,6 @@ Vcontrol_unit::Vcontrol_unit(VerilatedContext* _vcontextp__, const char* _vcname
     , run{vlSymsp->TOP.run}
     , sel{vlSymsp->TOP.sel}
     , mux_sel{vlSymsp->TOP.mux_sel}
-    , mode{vlSymsp->TOP.mode}
     , done{vlSymsp->TOP.done}
     , enableOutput{vlSymsp->TOP.enableOutput}
     , en_s{vlSymsp->TOP.en_s}

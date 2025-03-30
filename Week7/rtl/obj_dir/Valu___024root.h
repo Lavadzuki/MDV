@@ -15,8 +15,7 @@ class alignas(VL_CACHE_LINE_BYTES) Valu___024root final : public VerilatedModule
 
     // DESIGN SPECIFIC STATE
     VL_IN8(carry_in,0,0);
-    VL_IN8(select,3,0);
-    VL_IN8(mode,0,0);
+    VL_IN8(select,2,0);
     VL_OUT8(carry_out,0,0);
     VL_OUT8(compare,0,0);
     CData/*0:0*/ __VstlFirstIteration;

@@ -6,9 +6,8 @@ input wire rst,
 input wire [15:0] instruction,
 
 
-output reg [3:0] sel,
+output reg [2:0] sel,
 output reg [2:0] mux_sel,
-output reg mode,
 output reg done,
 output reg [7:0] enableOutput,
 
@@ -18,28 +17,25 @@ output reg en_i
 );
 
 
-reg [2:0] Rx;
-reg [2:0] Ry;
-reg [2:0] Res1;
-reg [3:0] ALU_sel;
-reg ALU_mode;
-reg [1:0] Res0;
+reg [2:0] Rx; 
+reg [2:0] Ry; 
+reg [4:0] Res1; 
+reg [2:0] ALU_sel; 
+reg [1:0] Res0; 
 
 always @(posedge clk or posedge rst) begin
     if (rst || !run) begin
         Rx <= 3'b0;
         Ry <= 3'b0;
-        Res1 <= 3'b0;
-        ALU_sel <= 4'b0;
-        ALU_mode <= 1'b0;
+        Res1 <= 5'b0;
+        ALU_sel <= 3'b0;
         Res0 <= 2'b0;
     end else begin
 
         Rx <= instruction[15:13];
         Ry <= instruction[12:10];
-        Res1 <= instruction[9:7];
-        ALU_sel <= instruction[6:3];
-        ALU_mode <= instruction[2];
+        Res1 <= instruction[9:5];
+        ALU_sel <= instruction[4:2];
         Res0 <= instruction[1:0];
         
     end
@@ -95,7 +91,6 @@ always @(posedge clk) begin
             en_c <= 1'b1;
             en_i <= 1'b0;
             sel <= ALU_sel;
-            mode <= ALU_mode;
             mux_sel <= Ry;
             next_state <= S3;
         end

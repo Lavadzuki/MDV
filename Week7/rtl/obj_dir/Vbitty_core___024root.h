@@ -22,12 +22,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     CData/*0:0*/ bitty_core__DOT__en_s;
     CData/*0:0*/ bitty_core__DOT__en_c;
     CData/*2:0*/ bitty_core__DOT__mux_sel;
-    CData/*3:0*/ bitty_core__DOT__ALU_sel;
-    CData/*0:0*/ bitty_core__DOT__ALU_mode;
+    CData/*2:0*/ bitty_core__DOT__ALU_sel;
     CData/*2:0*/ bitty_core__DOT__CU__DOT__Rx;
     CData/*2:0*/ bitty_core__DOT__CU__DOT__Ry;
-    CData/*3:0*/ bitty_core__DOT__CU__DOT__ALU_sel;
-    CData/*0:0*/ bitty_core__DOT__CU__DOT__ALU_mode;
+    CData/*2:0*/ bitty_core__DOT__CU__DOT__ALU_sel;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_0;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_1;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_2;
@@ -55,6 +53,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     SData/*15:0*/ bitty_core__DOT__s_out;
     SData/*15:0*/ bitty_core__DOT__c_out;
     SData/*15:0*/ bitty_core__DOT__mux_out;
+    SData/*15:0*/ bitty_core__DOT__ALU_out;
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__0__KET____DOT__R__d_out;
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__1__KET____DOT__R__d_out;
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__2__KET____DOT__R__d_out;
@@ -63,8 +62,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__5__KET____DOT__R__d_out;
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__6__KET____DOT__R__d_out;
     SData/*15:0*/ bitty_core__DOT____Vcellout__reg_bank__BRA__7__KET____DOT__R__d_out;
-    SData/*15:0*/ bitty_core__DOT__alu_unit__DOT__arith_result;
-    SData/*15:0*/ bitty_core__DOT__alu_unit__DOT__logic_result;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<SData/*15:0*/, 8> bitty_core__DOT__r_out;
     VlTriggerVec<1> __VstlTriggered;

@@ -26,9 +26,8 @@ module bitty_core(
     wire en_c;
 
     // Control Unit outputs
-    wire [3:0] sel;
+    wire [2:0] sel;
     wire [2:0] mux_sel;
-    wire mode;
 
     // Input to register file (output of ALU or MUX)
     wire [15:0] reg_in;  
@@ -50,8 +49,7 @@ module bitty_core(
     wire [15:0] ALU_out;
 
     // ALU select and ALY mode
-    wire [3:0] ALU_sel;
-    wire ALU_mode;
+    wire [2:0] ALU_sel;
 
     // Control Unit initiation
     control_unit CU (
@@ -61,7 +59,6 @@ module bitty_core(
         .instruction(instruction),
         .sel(ALU_sel),
         .mux_sel(mux_sel),
-        .mode(ALU_mode),
         .done(done),
         .enableOutput(enables),
         .en_s(en_s),
@@ -121,7 +118,6 @@ module bitty_core(
         .in_a(s_out),
         .in_b(mux_out),
         .select(ALU_sel),
-        .mode(ALU_mode),
         .alu_out(ALU_out),
         .carry_in(),
         .carry_out(),

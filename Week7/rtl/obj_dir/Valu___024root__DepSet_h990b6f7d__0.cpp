@@ -21,137 +21,41 @@ VL_INLINE_OPT void Valu___024root___ico_sequent__TOP__0(Valu___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    Valu___024root___ico_sequent__TOP__0\n"); );
     Valu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Init
-    SData/*15:0*/ alu__DOT__arith_result;
-    alu__DOT__arith_result = 0;
-    SData/*15:0*/ alu__DOT__logic_result;
-    alu__DOT__logic_result = 0;
     // Body
-    vlSelfRef.carry_out = (1U & ((~ (IData)(vlSelfRef.mode)) 
-                                 & (((IData)(vlSelfRef.in_a) 
-                                     + (IData)(vlSelfRef.in_b)) 
-                                    >> 0x10U)));
-    vlSelfRef.compare = ((~ (IData)(vlSelfRef.mode)) 
-                         & ((IData)(vlSelfRef.in_a) 
-                            == (IData)(vlSelfRef.in_b)));
-    if ((8U & (IData)(vlSelfRef.select))) {
-        if ((4U & (IData)(vlSelfRef.select))) {
-            if ((2U & (IData)(vlSelfRef.select))) {
-                if ((1U & (IData)(vlSelfRef.select))) {
-                    alu__DOT__arith_result = (0xffffU 
-                                              & ((IData)(vlSelfRef.in_a) 
-                                                 - (IData)(1U)));
-                    alu__DOT__logic_result = (0xffffU 
-                                              & (IData)(vlSelfRef.in_a));
-                } else {
-                    alu__DOT__arith_result = (0xffffU 
-                                              & (((IData)(vlSelfRef.in_a) 
-                                                  | (~ (IData)(vlSelfRef.in_b))) 
-                                                 + (IData)(vlSelfRef.in_a)));
-                    alu__DOT__logic_result = (0xffffU 
-                                              & ((IData)(vlSelfRef.in_a) 
-                                                 | (IData)(vlSelfRef.in_b)));
-                }
-            } else if ((1U & (IData)(vlSelfRef.select))) {
-                alu__DOT__arith_result = (0xffffU & 
-                                          (((IData)(vlSelfRef.in_a) 
-                                            | (IData)(vlSelfRef.in_b)) 
-                                           + (IData)(vlSelfRef.in_a)));
-                alu__DOT__logic_result = (0xffffU & 
-                                          ((IData)(vlSelfRef.in_a) 
-                                           | (~ (IData)(vlSelfRef.in_b))));
-            } else {
-                alu__DOT__arith_result = (0xffffU & 
-                                          ((IData)(vlSelfRef.in_a) 
-                                           + (IData)(vlSelfRef.in_a)));
-                alu__DOT__logic_result = (0xffffU & 0xffffU);
-            }
-        } else if ((2U & (IData)(vlSelfRef.select))) {
-            if ((1U & (IData)(vlSelfRef.select))) {
-                alu__DOT__arith_result = (0xffffU & 
-                                          (((IData)(vlSelfRef.in_a) 
-                                            & (IData)(vlSelfRef.in_b)) 
-                                           - (IData)(1U)));
-                alu__DOT__logic_result = (0xffffU & 
-                                          ((IData)(vlSelfRef.in_a) 
-                                           & (IData)(vlSelfRef.in_b)));
-            } else {
-                alu__DOT__arith_result = (0xffffU & 
-                                          (((IData)(vlSelfRef.in_a) 
-                                            | (~ (IData)(vlSelfRef.in_b))) 
-                                           + ((IData)(vlSelfRef.in_a) 
-                                              & (IData)(vlSelfRef.in_b))));
-                alu__DOT__logic_result = (0xffffU & (IData)(vlSelfRef.in_b));
-            }
-        } else if ((1U & (IData)(vlSelfRef.select))) {
-            alu__DOT__arith_result = (0xffffU & ((IData)(vlSelfRef.in_a) 
-                                                 + (IData)(vlSelfRef.in_b)));
-            alu__DOT__logic_result = (0xffffU & (~ 
-                                                 ((IData)(vlSelfRef.in_a) 
-                                                  ^ (IData)(vlSelfRef.in_b))));
-        } else {
-            alu__DOT__arith_result = (0xffffU & ((IData)(vlSelfRef.in_a) 
-                                                 + 
-                                                 ((IData)(vlSelfRef.in_a) 
-                                                  & (IData)(vlSelfRef.in_b))));
-            alu__DOT__logic_result = (0xffffU & ((~ (IData)(vlSelfRef.in_a)) 
-                                                 | (IData)(vlSelfRef.in_b)));
-        }
-    } else if ((4U & (IData)(vlSelfRef.select))) {
+    vlSelfRef.alu_out = 0U;
+    if ((4U & (IData)(vlSelfRef.select))) {
         if ((2U & (IData)(vlSelfRef.select))) {
             if ((1U & (IData)(vlSelfRef.select))) {
-                alu__DOT__arith_result = (0xffffU & 
-                                          (((IData)(vlSelfRef.in_a) 
-                                            & (~ (IData)(vlSelfRef.in_b))) 
-                                           - (IData)(1U)));
-                alu__DOT__logic_result = (0xffffU & 
-                                          ((IData)(vlSelfRef.in_a) 
-                                           & (~ (IData)(vlSelfRef.in_b))));
+                if (((IData)(vlSelfRef.in_a) == (IData)(vlSelfRef.in_b))) {
+                    vlSelfRef.alu_out = 0U;
+                } else if (((IData)(vlSelfRef.in_a) 
+                            > (IData)(vlSelfRef.in_b))) {
+                    vlSelfRef.alu_out = 1U;
+                } else if (((IData)(vlSelfRef.in_a) 
+                            < (IData)(vlSelfRef.in_b))) {
+                    vlSelfRef.alu_out = 2U;
+                }
             } else {
-                alu__DOT__arith_result = (0xffffU & 
-                                          (((IData)(vlSelfRef.in_a) 
-                                            - (IData)(vlSelfRef.in_b)) 
-                                           - (IData)(1U)));
-                alu__DOT__logic_result = (0xffffU & 
-                                          ((IData)(vlSelfRef.in_a) 
-                                           ^ (IData)(vlSelfRef.in_b)));
+                vlSelfRef.alu_out = (0xffffU & VL_SHIFTR_III(16,16,16, (IData)(vlSelfRef.in_a), (IData)(vlSelfRef.in_b)));
             }
-        } else if ((1U & (IData)(vlSelfRef.select))) {
-            alu__DOT__arith_result = (0xffffU & (((IData)(vlSelfRef.in_a) 
-                                                  | (IData)(vlSelfRef.in_b)) 
-                                                 + 
-                                                 ((IData)(vlSelfRef.in_a) 
-                                                  & (~ (IData)(vlSelfRef.in_b)))));
-            alu__DOT__logic_result = (0xffffU & (~ (IData)(vlSelfRef.in_b)));
         } else {
-            alu__DOT__arith_result = (0xffffU & ((IData)(vlSelfRef.in_a) 
-                                                 | ((IData)(vlSelfRef.in_a) 
-                                                    & (~ (IData)(vlSelfRef.in_b)))));
-            alu__DOT__logic_result = (0xffffU & (~ 
-                                                 ((IData)(vlSelfRef.in_a) 
-                                                  & (IData)(vlSelfRef.in_b))));
+            vlSelfRef.alu_out = (0xffffU & ((1U & (IData)(vlSelfRef.select))
+                                             ? VL_SHIFTL_III(16,16,16, (IData)(vlSelfRef.in_a), (IData)(vlSelfRef.in_b))
+                                             : ((IData)(vlSelfRef.in_a) 
+                                                ^ (IData)(vlSelfRef.in_b))));
         }
-    } else if ((2U & (IData)(vlSelfRef.select))) {
-        if ((1U & (IData)(vlSelfRef.select))) {
-            alu__DOT__arith_result = (0xffffU & 0xffffU);
-            alu__DOT__logic_result = (0xffffU & 0U);
-        } else {
-            alu__DOT__arith_result = (0xffffU & ((IData)(vlSelfRef.in_a) 
-                                                 | (~ (IData)(vlSelfRef.in_b))));
-            alu__DOT__logic_result = (0xffffU & ((~ (IData)(vlSelfRef.in_a)) 
-                                                 & (IData)(vlSelfRef.in_b)));
-        }
-    } else if ((1U & (IData)(vlSelfRef.select))) {
-        alu__DOT__arith_result = (0xffffU & ((IData)(vlSelfRef.in_a) 
-                                             | (IData)(vlSelfRef.in_b)));
-        alu__DOT__logic_result = (0xffffU & (~ ((IData)(vlSelfRef.in_a) 
-                                                | (IData)(vlSelfRef.in_b))));
     } else {
-        alu__DOT__arith_result = (0xffffU & (IData)(vlSelfRef.in_a));
-        alu__DOT__logic_result = (0xffffU & (~ (IData)(vlSelfRef.in_a)));
+        vlSelfRef.alu_out = (0xffffU & ((2U & (IData)(vlSelfRef.select))
+                                         ? ((1U & (IData)(vlSelfRef.select))
+                                             ? ((IData)(vlSelfRef.in_a) 
+                                                | (IData)(vlSelfRef.in_b))
+                                             : ((IData)(vlSelfRef.in_a) 
+                                                & (IData)(vlSelfRef.in_b)))
+                                         : ((1U & (IData)(vlSelfRef.select))
+                                             ? ((IData)(vlSelfRef.in_a) 
+                                                - (IData)(vlSelfRef.in_b))
+                                             : (~ (IData)(vlSelfRef.in_a)))));
     }
-    vlSelfRef.alu_out = ((IData)(vlSelfRef.mode) ? (IData)(alu__DOT__logic_result)
-                          : (IData)(alu__DOT__arith_result));
 }
 
 void Valu___024root___eval_triggers__ico(Valu___024root* vlSelf);
@@ -296,9 +200,7 @@ void Valu___024root___eval_debug_assertions(Valu___024root* vlSelf) {
     // Body
     if (VL_UNLIKELY(((vlSelfRef.carry_in & 0xfeU)))) {
         Verilated::overWidthError("carry_in");}
-    if (VL_UNLIKELY(((vlSelfRef.select & 0xf0U)))) {
+    if (VL_UNLIKELY(((vlSelfRef.select & 0xf8U)))) {
         Verilated::overWidthError("select");}
-    if (VL_UNLIKELY(((vlSelfRef.mode & 0xfeU)))) {
-        Verilated::overWidthError("mode");}
 }
 #endif  // VL_DEBUG

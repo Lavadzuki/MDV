@@ -146,8 +146,7 @@ VL_ATTR_COLD void Valu___024root___ctor_var_reset(Valu___024root* vlSelf) {
     vlSelf->carry_in = VL_RAND_RESET_I(1);
     vlSelf->in_a = VL_RAND_RESET_I(16);
     vlSelf->in_b = VL_RAND_RESET_I(16);
-    vlSelf->select = VL_RAND_RESET_I(4);
-    vlSelf->mode = VL_RAND_RESET_I(1);
+    vlSelf->select = VL_RAND_RESET_I(3);
     vlSelf->carry_out = VL_RAND_RESET_I(1);
     vlSelf->compare = VL_RAND_RESET_I(1);
     vlSelf->alu_out = VL_RAND_RESET_I(16);

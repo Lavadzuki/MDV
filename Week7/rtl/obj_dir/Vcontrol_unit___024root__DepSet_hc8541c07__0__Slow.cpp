@@ -96,9 +96,8 @@ VL_ATTR_COLD void Vcontrol_unit___024root___ctor_var_reset(Vcontrol_unit___024ro
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
     vlSelf->instruction = VL_RAND_RESET_I(16);
-    vlSelf->sel = VL_RAND_RESET_I(4);
+    vlSelf->sel = VL_RAND_RESET_I(3);
     vlSelf->mux_sel = VL_RAND_RESET_I(3);
-    vlSelf->mode = VL_RAND_RESET_I(1);
     vlSelf->done = VL_RAND_RESET_I(1);
     vlSelf->enableOutput = VL_RAND_RESET_I(8);
     vlSelf->en_s = VL_RAND_RESET_I(1);
@@ -106,8 +105,7 @@ VL_ATTR_COLD void Vcontrol_unit___024root___ctor_var_reset(Vcontrol_unit___024ro
     vlSelf->en_i = VL_RAND_RESET_I(1);
     vlSelf->control_unit__DOT__Rx = VL_RAND_RESET_I(3);
     vlSelf->control_unit__DOT__Ry = VL_RAND_RESET_I(3);
-    vlSelf->control_unit__DOT__ALU_sel = VL_RAND_RESET_I(4);
-    vlSelf->control_unit__DOT__ALU_mode = VL_RAND_RESET_I(1);
+    vlSelf->control_unit__DOT__ALU_sel = VL_RAND_RESET_I(3);
     vlSelf->control_unit__DOT__en_0 = VL_RAND_RESET_I(1);
     vlSelf->control_unit__DOT__en_1 = VL_RAND_RESET_I(1);
     vlSelf->control_unit__DOT__en_2 = VL_RAND_RESET_I(1);

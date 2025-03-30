@@ -99,7 +99,6 @@ VL_INLINE_OPT void Vcontrol_unit___024root___nba_sequent__TOP__0(Vcontrol_unit__
             vlSelfRef.en_c = 1U;
             vlSelfRef.en_s = 0U;
             vlSelfRef.en_i = 0U;
-            vlSelfRef.mode = vlSelfRef.control_unit__DOT__ALU_mode;
             vlSelfRef.sel = vlSelfRef.control_unit__DOT__ALU_sel;
             vlSelfRef.mux_sel = vlSelfRef.control_unit__DOT__Ry;
         }
@@ -124,21 +123,15 @@ VL_INLINE_OPT void Vcontrol_unit___024root___nba_sequent__TOP__1(Vcontrol_unit__
     Vcontrol_unit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.control_unit__DOT__ALU_mode = ((1U & 
-                                              (~ ((IData)(vlSelfRef.rst) 
-                                                  | (~ (IData)(vlSelfRef.run))))) 
-                                             && (1U 
-                                                 & ((IData)(vlSelfRef.instruction) 
-                                                    >> 2U)));
     if ((1U & ((IData)(vlSelfRef.rst) | (~ (IData)(vlSelfRef.run))))) {
         vlSelfRef.control_unit__DOT__ALU_sel = 0U;
         vlSelfRef.control_unit__DOT__Ry = 0U;
         vlSelfRef.control_unit__DOT__Rx = 0U;
         vlSelfRef.control_unit__DOT__current_state = 0U;
     } else {
-        vlSelfRef.control_unit__DOT__ALU_sel = (0xfU 
+        vlSelfRef.control_unit__DOT__ALU_sel = (7U 
                                                 & ((IData)(vlSelfRef.instruction) 
-                                                   >> 3U));
+                                                   >> 2U));
         vlSelfRef.control_unit__DOT__Ry = (7U & ((IData)(vlSelfRef.instruction) 
                                                  >> 0xaU));
         vlSelfRef.control_unit__DOT__Rx = (7U & ((IData)(vlSelfRef.instruction) 

@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 
     core->rst = 0;
     core->run = 1;
-    core->instruction = 0b1111110000010000;
+    core->instruction = 0b1011110000000000;
 
     // Simulate FSM cycles
     for (int i = 0; i < 15; i++) {

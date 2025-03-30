@@ -2,38 +2,47 @@ module alu (
     input wire carry_in,
     input wire [15:0] in_a,
     input wire [15:0] in_b,
-    input wire [3:0] select,
-    input wire mode,  // Mode selection: 0 = Arithmetic, 1 = Logic
+    input wire [2:0] select,
     output wire carry_out,
     output wire compare,
-    output wire [15:0] alu_out
+    output reg [15:0] alu_out
 );
 
-    wire [15:0] arith_result;
-    wire [15:0] logic_result;
-    wire arith_carry_out, arith_compare;
+ //   wire arith_carry_out, arith_compare;
 
+    always @(*) begin
+        alu_out = 16'd0;  
+        case (select) 
+            3'b000:
+                alu_out = in_a + in_b ;  // for test16'b0000000000000010
+            3'b001:
+                alu_out = in_a - in_b;
+            3'b010:
+                alu_out = in_a & in_b;
+            3'b011:
+                alu_out = in_a | in_b;
+            3'b100:
+                alu_out = in_a ^ in_b;
+            3'b101:
+                alu_out = in_a << in_b;
+            3'b110:
+                alu_out = in_a >> in_b;
+            3'b111:
+                if (in_a == in_b) begin
+                    alu_out = 16'd0;
+                end else if (in_a > in_b) begin
+                    alu_out = 16'd1;
+                end else if (in_a < in_b) begin
+                    alu_out = 16'd2;
+                end
+
+        endcase
+    end
     
 
-    alu_arithmetic arithmetic_unit (
-        .in_a(in_a),
-        .in_b(in_b),
-        .select(select),
-        .arith_out(arith_result),
-        .carry_out(arith_carry_out),
-        .compare(arith_compare)
-    );
+//  assign alu_out = alu_result;
 
-    alu_logic logic_unit (
-        .in_a(in_a),
-        .in_b(in_b),
-        .select(select),
-        .logic_out(logic_result)
-    );
-
-    assign alu_out = (mode == 1'b0) ? arith_result : logic_result ;
-
-    assign carry_out = (mode == 1'b0) ? arith_carry_out : 1'b0;
-    assign compare = (mode == 1'b0) ? arith_compare : 1'b0;
+ //   assign carry_out = (mode == 1'b0) ? arith_carry_out : 1'b0;
+   // assign compare = (mode == 1'b0) ? arith_compare : 1'b0;
 
 endmodule
