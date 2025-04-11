@@ -29,6 +29,7 @@ VM_CLASSES_FAST += \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
+	Vbitty_core__ConstPool_0 \
 	Vbitty_core___024root__Slow \
 	Vbitty_core___024root__DepSet_hcf9df65c__0__Slow \
 	Vbitty_core___024root__DepSet_h8237c10d__0__Slow \

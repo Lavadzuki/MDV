@@ -118,10 +118,10 @@ module bitty_core(
         .in_a(s_out),
         .in_b(mux_out),
         .select(ALU_sel),
-        .alu_out(ALU_out),
-        .carry_in(),
-        .carry_out(),
-        .compare()
+        .alu_out(ALU_out)
+       // .carry_in(),
+   //     .carry_out(),
+    //    .compare()
     );
 
 assign r0_out = r_out[0];

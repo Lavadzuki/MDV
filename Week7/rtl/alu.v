@@ -1,10 +1,10 @@
 module alu (
-    input wire carry_in,
+   // input wire carry_in,
     input wire [15:0] in_a,
     input wire [15:0] in_b,
     input wire [2:0] select,
-    output wire carry_out,
-    output wire compare,
+ //   output wire carry_out,
+   // output wire compare,
     output reg [15:0] alu_out
 );
 
@@ -14,7 +14,7 @@ module alu (
         alu_out = 16'd0;  
         case (select) 
             3'b000:
-                alu_out = in_a + in_b ;  // for test16'b0000000000000010
+                alu_out = ~in_a; 
             3'b001:
                 alu_out = in_a - in_b;
             3'b010:
@@ -24,9 +24,9 @@ module alu (
             3'b100:
                 alu_out = in_a ^ in_b;
             3'b101:
-                alu_out = in_a << in_b;
+                alu_out = in_a << (in_b[3:0]);
             3'b110:
-                alu_out = in_a >> in_b;
+                alu_out = in_a >> (in_b[3:0]);
             3'b111:
                 if (in_a == in_b) begin
                     alu_out = 16'd0;

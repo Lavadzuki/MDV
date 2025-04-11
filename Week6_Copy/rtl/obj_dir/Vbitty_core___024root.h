@@ -18,16 +18,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     VL_IN8(rst,0,0);
     VL_IN8(run,0,0);
     VL_OUT8(done,0,0);
-    CData/*7:0*/ bitty_core__DOT__enables;
     CData/*0:0*/ bitty_core__DOT__en_s;
     CData/*0:0*/ bitty_core__DOT__en_c;
-    CData/*2:0*/ bitty_core__DOT__mux_sel;
-    CData/*3:0*/ bitty_core__DOT__ALU_sel;
     CData/*0:0*/ bitty_core__DOT__ALU_mode;
-    CData/*2:0*/ bitty_core__DOT__CU__DOT__Rx;
-    CData/*2:0*/ bitty_core__DOT__CU__DOT__Ry;
-    CData/*3:0*/ bitty_core__DOT__CU__DOT__ALU_sel;
-    CData/*0:0*/ bitty_core__DOT__CU__DOT__ALU_mode;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_0;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_1;
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_2;
@@ -38,8 +31,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     CData/*0:0*/ bitty_core__DOT__CU__DOT__en_7;
     CData/*1:0*/ bitty_core__DOT__CU__DOT__next_state;
     CData/*1:0*/ bitty_core__DOT__CU__DOT__current_state;
-    CData/*1:0*/ __Vdly__bitty_core__DOT__CU__DOT__next_state;
     CData/*0:0*/ __VstlFirstIteration;
+    CData/*0:0*/ __VicoFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
     CData/*0:0*/ __Vtrigprevexpr___TOP__rst__0;
     CData/*0:0*/ __VactContinue;
@@ -68,6 +61,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<SData/*15:0*/, 8> bitty_core__DOT__r_out;
     VlTriggerVec<1> __VstlTriggered;
+    VlTriggerVec<1> __VicoTriggered;
     VlTriggerVec<2> __VactTriggered;
     VlTriggerVec<2> __VnbaTriggered;
 
